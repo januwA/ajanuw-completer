@@ -7,8 +7,8 @@ abstract class _Completer<T> {
    */
   isCompleted: boolean = false;
 
-  protected abstract _res: (value?: T) => void;
-  protected abstract _rej: (error?: any) => void;
+  protected abstract _res: (value: T | PromiseLike<T>) => void;
+  protected abstract _rej: (reason?: any) => void;
 
   abstract complete(value: T): void;
   abstract completeError(error: any): void;
@@ -33,8 +33,8 @@ abstract class _Completer<T> {
  * ```
  */
 export class Completer<T> extends _Completer<T> {
-  protected _res!: (value?: T | undefined) => void;
-  protected _rej!: (error?: any) => void;
+  protected _res!: (value: T | PromiseLike<T>) => void;
+  protected _rej!: (reason?: any) => void;
   public promise: Promise<T>;
 
   /**

@@ -1,44 +1,32 @@
-const path = require('path');
-const { CleanWebpackPlugin } = require('clean-webpack-plugin');
-const CopyFilePlugin = require('webpack-copy-file-plugin');
-const TerserJSPlugin = require('terser-webpack-plugin');
-
-const tsConfig = require('./tsconfig.json')
-
+const path = require("path");
 module.exports = {
-	mode: 'production', // production or development
-	entry: {
-		"ajanuw-completer": path.resolve(__dirname, 'src/index.ts')
-	},
-	module: {
-		rules: [
-			{
-				test: /\.tsx?$/,
-				use: 'ts-loader',
-				exclude: /node_modules/,
-			},
-		],
-	},
-	resolve: {
-		extensions: ['.tsx', '.ts', '.js'],
-	},
-	optimization: {
-		minimizer: [new TerserJSPlugin({})],
-	},
-	plugins: [
-		new CleanWebpackPlugin(),
-		new CopyFilePlugin([
-			'./README.md',
-			'./LICENSE',
-			'./.gitignore',
-			'./package.json'
-		].map(f => path.resolve(__dirname, f)))
-	],
-	output: {
-		filename: '[name].js',
-		path: path.resolve(__dirname, tsConfig.compilerOptions.outDir),
-		library: "AjanuwCompleter",
-		libraryTarget: 'umd',
-		globalObject: "this",
-	},
+  mode: "production",
+  entry: {
+    "ajanuw-completer": path.resolve(__dirname, "src/index.ts"),
+  },
+  module: {
+    rules: [
+      {
+        test: /\.tsx?$/,
+        exclude: /(node_modules|bower_components)/,
+        use: {
+          loader: "ts-loader",
+          options: {
+            configFile: "tsconfig.build.json",
+          },
+        },
+      },
+    ],
+  },
+  resolve: {
+    extensions: [".tsx", ".ts", ".js"],
+  },
+  output: {
+    filename: "[name].js",
+    path: path.resolve(__dirname, "dist"),
+    library: "AjanuwCompleter",
+    libraryTarget: "umd",
+    globalObject: "this",
+    clean: true,
+  },
 };

@@ -1,15 +1,13 @@
 {
   "name": "ajanuw-completer",
-  "version": "0.1.1",
+  "version": "0.2.0",
   "description": "completer",
-  "private": true,
-  "main": "ajanuw-completer.js",
-  "types": "src/index.d.ts",
+  "private": false,
+  "main": "./dist/ajanuw-completer.js",
+  "types": "./dist/index.d.ts",
   "scripts": {
     "build": "webpack",
-    "watch": "webpack --watch",
-    "start": "node ./dev-server.js",
-    "format": "prettier --write \"src/**/*.ts\""
+    "watch": "webpack --watch"
   },
   "keywords": [
     "ajanuw",
@@ -21,13 +19,9 @@
   "homepage": "https://github.com/januwA/ajanuw-completer",
   "repository": "januwA/ajanuw-completer",
   "devDependencies": {
-    "clean-webpack-plugin": "^3.0.0",
-    "prettier": "^1.19.1",
-    "terser-webpack-plugin": "^2.3.1",
-    "ts-loader": "^6.2.1",
-    "typescript": "^3.7.4",
-    "webpack": "^4.41.5",
-    "webpack-cli": "^3.3.10",
-    "webpack-copy-file-plugin": "^0.1.5"
+    "ts-loader": "^9.2.3",
+    "typescript": "^4.3.5",
+    "webpack": "^5.45.1",
+    "webpack-cli": "^4.7.2"
   }
 }

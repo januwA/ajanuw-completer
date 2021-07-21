@@ -1,6 +1,6 @@
 # ajanuw-completer
 
-模拟dart的[Completer](https://api.dartlang.org/dev/2.0.0-dev.69.0/dart-async/Completer-class.html)
+模拟dart的 [Completer](https://api.dartlang.org/dev/2.0.0-dev.69.0/dart-async/Completer-class.html)
 
 ## install
 ```
@@ -9,7 +9,7 @@
 
 ## 使用
 ```
-<script src="../dist/ajanuw-completer.js"></script>
+<script src="ajanuw-completer.js"></script>
 <script>
     const { Completer } = AjanuwCompleter;
     let _data = new Completer();
