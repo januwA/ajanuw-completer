@@ -2,7 +2,7 @@ const path = require("path");
 module.exports = {
   mode: "production",
   entry: {
-    "ajanuw-completer": path.resolve(__dirname, "src/index.ts"),
+    completer: path.resolve(__dirname, "src/index.ts"),
   },
   module: {
     rules: [
@@ -12,7 +12,7 @@ module.exports = {
         use: {
           loader: "ts-loader",
           options: {
-            configFile: "tsconfig.build.json",
+            configFile: "tsconfig.types.json",
           },
         },
       },
@@ -23,8 +23,8 @@ module.exports = {
   },
   output: {
     filename: "[name].js",
-    path: path.resolve(__dirname, "dist"),
-    library: "AjanuwCompleter",
+    path: path.resolve(__dirname, "dist/umd"),
+    library: "Completer",
     libraryTarget: "umd",
     globalObject: "this",
     clean: true,

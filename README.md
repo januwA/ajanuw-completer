@@ -4,35 +4,35 @@
 
 ## install
 ```
-λ npm i ajanuw-completer -S
+λ npm i ajanuw-completer
 ```
 
-## 使用
-```
-<script src="ajanuw-completer.js"></script>
+## browser
+```html
+<script src="./dist/umd/completer.js"></script>
 <script>
-    const { Completer } = AjanuwCompleter;
-    let _data = new Completer();
-    _data.promise
-    .then(v => {
-        console.log(v); // 233
+  const { Completer } = window.Completer;
+  let _data = new Completer();
+  _data.promise
+    .then((v) => {
+      console.log(v); // 233
     })
-    .catch(er => {
-        console.log(er);
+    .catch((er) => {
+      console.log(er);
     });
 
-    setTimeout(() => {
+  setTimeout(() => {
     _data.complete(233);
     console.log(_data.isCompleted); // true
-    }, 2000);
+  }, 2000);
 
-    setTimeout(() => {
+  setTimeout(() => {
     _data.complete(233); // error
-    }, 3000);
+  }, 3000);
 </script>
 ```
 
-## typescript
+## node
 ```ts
 import { Completer } from "ajanuw-completer";
 

@@ -1,13 +1,15 @@
 {
   "name": "ajanuw-completer",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "completer",
   "private": false,
-  "main": "./dist/ajanuw-completer.js",
-  "types": "./dist/index.d.ts",
+  "main": "./dist/umd/completer.js",
+  "module": "./dist/esm/index.js",
+  "types": "./dist/types/index.d.ts",
   "scripts": {
-    "build": "webpack",
-    "watch": "webpack --watch"
+    "build:esm": "tsc --project tsconfig.esm.json",
+    "build:umd": "webpack",
+    "build": "npm run build:umd && npm run build:esm"
   },
   "keywords": [
     "ajanuw",
